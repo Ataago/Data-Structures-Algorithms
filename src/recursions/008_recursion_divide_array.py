@@ -10,7 +10,8 @@
 
 
 def divide_array(array, group_1, group_2):
-    if sum(group_1) % 5 == 0 and sum(group_2) % 2 == 1 and len(array) == 0:
+    if (len(array) == 0) and ((sum(group_1) % 5 == 0 and sum(group_2) % 2 == 1) or \
+            (sum(group_2) % 5 == 0 and sum(group_1) % 2 == 1)):
         return print(f"Group 1: {group_1}\nGroup 2: {group_2}\n")
     if len(array) == 0:
         return
