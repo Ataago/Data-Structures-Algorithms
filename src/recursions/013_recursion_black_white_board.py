@@ -52,6 +52,27 @@ def is_captured(i, j, visited):
 
     return True
 
+
+def is_captured1(i, j, visited):
+    if BOARD[i][j] == EMPTY:
+        return False
+
+    if BOARD[i][j] == WHITE or visited[i][j]:
+        return True
+
+    visited[i][j] = True
+    if (j > 0 and not is_captured1(i, j - 1, visited)) or \
+            (j < COL - 1 and not is_captured1(i, j + 1, visited)) or \
+            (i > 0 and not is_captured1(i - 1, j, visited)) or \
+            (i < ROW - 1 and not is_captured1(i + 1, j, visited)):
+        return False
+
+    return True
+
+
 if __name__ == '__main__':
     visited = [[False]*COL for i in range(ROW)]
     print(is_captured(0, 2, visited=visited))
+
+    visited = [[False] * COL for i in range(ROW)]
+    print(is_captured1(0, 2, visited=visited))
