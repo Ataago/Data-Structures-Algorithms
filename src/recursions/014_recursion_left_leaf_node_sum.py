@@ -15,7 +15,7 @@ class Node:
         self.left = left
         self.right = right
 
-def sum_of_left_leaf_nodes(node, is_left=True):
+def sum_of_left_leaf_nodes(node, is_left=False):
 
     if is_left and node.left is None:
         return node.data
